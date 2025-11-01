@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="counter-display.js" defer></script>
+    <script src="counter-controls.js" defer></script>
+    <script src="combined-counter.js" defer></script>
+    <script src="profile-card.js" defer></script>
+    <script src="counter-display-b.js" defer></script>
+<script src="counter-controls-b.js" defer></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        body {
+            background: linear-gradient(to bottom, #37353E 0%, #44444E 100%);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .section {
+            background-color: #f0f0f0;
+            padding: 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+            width: 75%;
+            height: 2000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #D3DAD9;
+            font-family: 'Inter', sans-serif;
+            font-size: 45px;
+        }   
+        h2 {
+            color: #37353E;
+            font-family: 'Inter', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hands On Web Component</h1>
+    <div class="section">
+    <h2>Komponen 1 + Komponen 2</h2>
+
+    <counter-display id="display" title="Counter" value="0" style="width: 400px;"></counter-display>
+    <br>
+    <counter-controls id="controls" style="width: 400px;"></counter-controls>
+
+    <h2>Komponen 3</h2>
+    <combined-counter title="Combined Counter" style="width: 400px;"></combined-counter>
+    
+    <br>
+    <h2>Varian B</h2>
+    <counter-display-b id="displayB" title="Varian B Counter" value="10" style="width: 400px;"></counter-display-b>
+    <br>
+    <counter-controls-b target="displayB" style="width: 400px;"></counter-controls-b>
+
+    <br>
+
+    <h2>Profile Card</h2>
+    <profile-card 
+        name="Muhammad Dhafin Alfeizar Gandhang" 
+        nim="24/539735/PA/22916" 
+        avatar="https://media.artstyles.com/4873b05d-7858-479e-985e-cea29c324037-thumbnail.jpg"
+        github="https://github.com/Lemielll"
+        linkedin="https://www.linkedin.com/in/muhammad-dhafin-alfeizar-gandhang-a5429a322/  "
+    >
+    </profile-card>
+    <br>
+    <h2>Default Profile Card</h2>
+    <profile-card>
+    </profile-card>
+    </div>
+    <script>
+    const display = document.getElementById('display');
+    const controls = document.getElementById('controls');
+
+
+    controls.addEventListener('count-change', e => {
+      display.count += e.detail.delta;
+    });
+    
+
+  </script>
+
+</body>
+</html>
